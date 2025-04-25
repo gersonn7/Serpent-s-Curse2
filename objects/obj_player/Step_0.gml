@@ -10,6 +10,7 @@ attack = mouse_check_button_pressed(mb_left);
 
 velh = (right - left) * max_velh;
 
+
 //gravidade
 
 if(!down){
@@ -21,8 +22,9 @@ if(!down){
 
 //maquina de estados
 
-//estado parado
+
 switch(state){
+	#region parado
 	case "parado":
 		//comportamento
 		sprite_index = spr_player_parado_1;
@@ -46,8 +48,9 @@ switch(state){
 		
 		break;
 	
+	#endregion
 	
-	//estado movendo
+	#region movendo
 	case "movendo":
 		//comportamento
 		
@@ -68,8 +71,9 @@ switch(state){
 		}
 		
 		break;
+	#endregion
 		
-	//estado pulando
+	#region pulando
 	case "pulando":
 		//comportamento
 		
@@ -92,6 +96,9 @@ switch(state){
 		
 		//estado de ataque
 		
+	#endregion
+	
+	#region ataque
 		case "ataque":
 		
 		velh = 0;
@@ -104,19 +111,42 @@ switch(state){
 			sprite_index = spr_player_ataque3;
 		}
 		
-		//combo
+		//objeto damage
+		
+		// Criar objeto de dano
+		if(image_index >= 2 && damage == noone && attackReady) {
+			damage = instance_create_layer(x + sprite_width/2, y - sprite_height/2, layer, obj_damage);
+			damage.damage = ataque;
+			damage.pai = id;
+			attackReady = false;
+		}
+		
+		
+		//combo 
 		
 		if(attack && combo<2 && image_index >= image_number-2){
 			combo++;
 			image_index = 0;
+			attackReady = true;
+			if(damage){
+				instance_destroy(damage, false);
+				damage = noone;
+			}
 		}
 		//troca de estado
 		if(image_index > image_number - 1){
 			state = "parado";
 			velh = 0;
 			combo = 0;
+			attackReady = true;
+			if(damage){
+				instance_destroy(damage, false);
+				damage = noone;
+			}
 		}
 		break
 		
-		
+	#endregion	
 }
+
+if(keyboard_check(ord("R")))room_restart();

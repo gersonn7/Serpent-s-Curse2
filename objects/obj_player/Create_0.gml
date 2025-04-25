@@ -10,3 +10,5 @@ max_velv = 6;
 showState = true;
 
 combo = 0;
+damage = noone;
+attackReady = true;
