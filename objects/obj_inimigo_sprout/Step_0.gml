@@ -1,5 +1,4 @@
 var down = place_meeting(x, y + 1, obj_bloqueio);
-
 if(!down){
 	velv += GRAVIDADE * massa;
 };
@@ -10,22 +9,34 @@ if(!down){
 //parado
 switch(state){
 	case "parado":
+	velh = 0;
+	//timer_state++
 	if(sprite_index != spr_inimigo_sprout_idle){
 		image_index = 0;	
 	}
 		sprite_index = spr_inimigo_sprout_idle;
 		
-		//troca de estado
-		if(position_meeting(mouse_x, mouse_y, self)){
-			if(mouse_check_button(mb_left)){
-				state = "damage";
-			}
+		if(irandom(timer_state) > 300){
+			state = choose("movendo", "parado", "movendo");
+			timer_state = 0;
 		}
+		
 		break;
 		
 	//movendo
 	case "movendo":
+		velh = 1;
+		if(sprite_index!= spr_inimigo_sprout_move){
+			image_index = 0;
+			
+		}
 		sprite_index = spr_inimigo_sprout_move;
+		
+		//troca de estado
+		if(irandom(timer_state) > 300){
+			state = chose("parado", "movendo", "parado");
+			timer_state = 0;
+		}
 		break;
 	
 	//damage
@@ -45,6 +56,7 @@ switch(state){
 			}
 		}
 		break;
+		
 	
 	//dead
 	case "dead":

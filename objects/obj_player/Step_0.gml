@@ -1,13 +1,13 @@
 //movimentacao
 
-var right, left, attack, jump;
+var right, left, attack, jump, dash;
 var down = place_meeting(x, y + 1, obj_bloqueio);
 
 right = keyboard_check(ord("D"));
 left = keyboard_check(ord("A"));
 jump = keyboard_check_pressed(vk_space);
 attack = mouse_check_button_pressed(mb_left);
-
+dash = keyboard_check_pressed(vk_control);
 velh = (right - left) * max_velh;
 
 
@@ -44,6 +44,9 @@ switch(state){
 			state = "ataque";
 			velh = 0;
 			image_index = 0;
+		}else if(dash){
+			state = "dashando";
+			image_index = 0;
 		}
 		
 		break;
@@ -60,13 +63,16 @@ switch(state){
 		//parado
 		if(abs(velh)< .1){
 		 state = "parado";
-		}else if(jump){
+		}else if(jump || velv != 0){
 			state = "pulando";
-			velv = -max_velv;
+			velv = (-max_velv) * jump;
 			image_index = 0;
 		}else if(attack){
 			state = "ataque"
 			velh=0;
+			image_index = 0;
+		}else if(dash){
+			state = "dashando";
 			image_index = 0;
 		}
 		
@@ -144,9 +150,31 @@ switch(state){
 				damage = noone;
 			}
 		}
+		if(dash){
+			state = "dashando";
+			image_index = 0;
+			combo = 0;
+			if(damage){
+				instance_destroy(damage, false);
+				damage = noone;
+			}
+		}
 		break
 		
 	#endregion	
+	
+	#region dash
+	case "dashando":
+		sprite_index = spr_player_dash;
+		
+		velh = image_xscale*dash_vel;
+		
+		if(image_index >= image_number - 1){
+			state = "parado"	
+		}
+		
+		
+	#endregion
 }
 
 if(keyboard_check(ord("R")))room_restart();

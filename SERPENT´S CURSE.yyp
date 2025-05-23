@@ -32,6 +32,7 @@
     {"$GMFolder":"","%Name":"Player","folderPath":"folders/Sprites/Player.yy","name":"Player","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"alto","folderPath":"folders/Sprites/Player/alto.yy","name":"alto","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"ataque","folderPath":"folders/Sprites/Player/ataque.yy","name":"ataque","resourceType":"GMFolder","resourceVersion":"2.0",},
+    {"$GMFolder":"","%Name":"dash","folderPath":"folders/Sprites/Player/dash.yy","name":"dash","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"movendo","folderPath":"folders/Sprites/Player/movendo.yy","name":"movendo","resourceType":"GMFolder","resourceVersion":"2.0",},
     {"$GMFolder":"","%Name":"Parado","folderPath":"folders/Sprites/Player/Parado.yy","name":"Parado","resourceType":"GMFolder","resourceVersion":"2.0",},
   ],
@@ -45,6 +46,7 @@
   "name":"SERPENT´S CURSE",
   "resources":[
     {"id":{"name":"obj_bloqueio","path":"objects/obj_bloqueio/obj_bloqueio.yy",},},
+    {"id":{"name":"obj_cam","path":"objects/obj_cam/obj_cam.yy",},},
     {"id":{"name":"obj_damage","path":"objects/obj_damage/obj_damage.yy",},},
     {"id":{"name":"obj_entidade","path":"objects/obj_entidade/obj_entidade.yy",},},
     {"id":{"name":"obj_inimigo_sprout","path":"objects/obj_inimigo_sprout/obj_inimigo_sprout.yy",},},
@@ -63,6 +65,7 @@
     {"id":{"name":"spr_player_ataque3","path":"sprites/spr_player_ataque3/spr_player_ataque3.yy",},},
     {"id":{"name":"spr_player_base","path":"sprites/spr_player_base/spr_player_base.yy",},},
     {"id":{"name":"spr_player_caindo","path":"sprites/spr_player_caindo/spr_player_caindo.yy",},},
+    {"id":{"name":"spr_player_dash","path":"sprites/spr_player_dash/spr_player_dash.yy",},},
     {"id":{"name":"spr_player_movendo","path":"sprites/spr_player_movendo/spr_player_movendo.yy",},},
     {"id":{"name":"spr_player_parado_1","path":"sprites/spr_player_parado_1/spr_player_parado_1.yy",},},
     {"id":{"name":"spr_player_parado_2","path":"sprites/spr_player_parado_2/spr_player_parado_2.yy",},},
