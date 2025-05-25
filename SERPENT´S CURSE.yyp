@@ -70,6 +70,7 @@
     {"id":{"name":"spr_player_parado_1","path":"sprites/spr_player_parado_1/spr_player_parado_1.yy",},},
     {"id":{"name":"spr_player_parado_2","path":"sprites/spr_player_parado_2/spr_player_parado_2.yy",},},
     {"id":{"name":"spr_player_pulo","path":"sprites/spr_player_pulo/spr_player_pulo.yy",},},
+    {"id":{"name":"Sprite18","path":"sprites/Sprite18/Sprite18.yy",},},
   ],
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
