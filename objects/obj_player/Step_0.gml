@@ -1,4 +1,20 @@
+//GAME PAUSE
+if (global.game_paused) exit;
+
+
+
+//GAME PAUSE
+
+if (global.game_paused) {
+    image_speed = 0; 
+    exit; 
+}
+
+image_speed = 1;
+
 //movimentacao
+
+
 
 var right, left, attack, jump, dash;
 var down = place_meeting(x, y + 1, obj_bloqueio);

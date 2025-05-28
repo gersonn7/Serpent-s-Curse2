@@ -1,4 +1,16 @@
+
+//GAME PAUSE
+if (global.game_paused) {
+    image_speed = 0; 
+    exit; 
+}
+image_speed = 1; 
+//GAME PAUSE
+
+
+
 var down = place_meeting(x, y + 1, obj_bloqueio);
+
 if(!down){
 	velv += GRAVIDADE * massa;
 };
