@@ -14,8 +14,8 @@
     "path":"folders/Objetos/inimigos.yy",
   },
   "parentObjectId":{
-    "name":"obj_entidade",
-    "path":"objects/obj_entidade/obj_entidade.yy",
+    "name":"OBJ_INIMIGOS_PAI",
+    "path":"objects/OBJ_INIMIGOS_PAI/OBJ_INIMIGOS_PAI.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,

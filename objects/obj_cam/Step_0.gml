@@ -1,4 +1,6 @@
 if(target == noone) exit;
 
-x = lerp(x, target.x, 1);
-y = lerp(y, target.y, 1);
+if (instance_exists(target)) {
+    x = lerp(x, target.x, 0.1);
+    y = lerp(y, target.y, 0.1);
+}

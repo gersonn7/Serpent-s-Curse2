@@ -8,14 +8,14 @@ left = keyboard_check(ord("A"));
 jump = keyboard_check_pressed(vk_space);
 attack = mouse_check_button_pressed(mb_left);
 dash = keyboard_check_pressed(vk_control);
-velh = (right - left) * max_velh;
+velh = (right - left) * max_velh * global.vel_mult;
 
 
 //gravidade
 
 if(!down){
 	if(velv < max_velv){
-	velv+=GRAVIDADE*massa;
+	velv+=GRAVIDADE*massa * global.vel_mult;
 	}
 	
 }
@@ -55,28 +55,27 @@ switch(state){
 	
 	#region movendo
 	case "movendo":
-		//comportamento
-		
-		sprite_index = spr_player_movendo;
-		
-		//troca de estado
-		//parado
-		if(abs(velh)< .1){
-		 state = "parado";
-		}else if(jump || velv != 0){
-			state = "pulando";
-			velv = (-max_velv) * jump;
-			image_index = 0;
-		}else if(attack){
-			state = "ataque"
-			velh=0;
-			image_index = 0;
-		}else if(dash){
-			state = "dashando";
-			image_index = 0;
-		}
-		
-		break;
+    sprite_index = spr_player_movendo;
+
+    if (right) image_xscale = 1;
+    else if (left) image_xscale = -1;
+
+    // Troca de estado
+    if(abs(velh)< .1){
+        state = "parado";
+    } else if(jump || velv != 0){
+        state = "pulando";
+        velv = (-max_velv) * jump;
+        image_index = 0;
+    } else if(attack){
+        state = "ataque";
+        velh = 0;
+        image_index = 0;
+    } else if(dash){
+        state = "dashando";
+        image_index = 0;
+    }
+    break;
 	#endregion
 		
 	#region pulando
@@ -165,16 +164,73 @@ switch(state){
 	
 	#region dash
 	case "dashando":
+	if(sprite_index!= spr_player_dash){
+		image_index = 0;
 		sprite_index = spr_player_dash;
-		
+	}
 		velh = image_xscale*dash_vel;
 		
 		if(image_index >= image_number - 1){
 			state = "parado"	
 		}
+	break;
 		
 		
 	#endregion
+	
+	
+	case "damage":
+		if(sprite_index != spr_player_hit){
+			sprite_index = spr_player_hit
+			image_index = 0;
+		}
+		
+		velh = 0;
+		
+	//condicao saida
+		if(vida_atual> 0){
+			if(image_index >= image_number -1){
+			state = "parado"	
+			}
+		}else{
+			if(image_index >= image_number -1){
+			state = "dead"	
+			}
+		}
+		break;
+		
+		#region dead
+	case "dead":
+{
+    if (sprite_index != spr_player_morte)
+    {
+        image_index = 0;
+        sprite_index = spr_player_morte;
+        image_speed = 0.2; // Garante que a animação avance
+    }
+
+    // Fica parado no final da animação e ativa o gameover
+    if (image_index >= image_number - 1)
+    {
+        image_index = image_number - 1;
+
+        if (instance_exists(obj_game_controller))
+        {
+            with (obj_game_controller)
+            {
+                gameover = true;
+            }
+        }
+    }
+}
+break;
+	#endregion
+		
+	default:
+		state = "parado"
+	break
 }
 
-if(keyboard_check(ord("R")))room_restart();
+	
+
+if(keyboard_check(ord("R")))game_restart();

@@ -18,3 +18,5 @@ showState = false;
 combo = 0;
 damage = noone;
 attackReady = true;
+
+coins = 0;
