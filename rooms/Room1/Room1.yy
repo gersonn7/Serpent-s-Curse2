@@ -16,15 +16,12 @@
     {"name":"inst_30468D83","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_2777AABE","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_8EACD8A","path":"rooms/Room1/Room1.yy",},
-<<<<<<< HEAD
     {"name":"inst_FBF228E","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_12A1C980","path":"rooms/Room1/Room1.yy",},
-=======
     {"name":"inst_49A828EB","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_78F09D93","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_6AD46D2B","path":"rooms/Room1/Room1.yy",},
     {"name":"inst_4D532616","path":"rooms/Room1/Room1.yy",},
->>>>>>> 1fac01c (slice)
   ],
   "isDnd":false,
   "layers":[
@@ -40,9 +37,7 @@
         {"$GMRInstance":"v2","%Name":"inst_49A828EB","colour":4294967295,"frozen":true,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_49A828EB","objectId":{"name":"obj_inimigo_sprout","path":"objects/obj_inimigo_sprout/obj_inimigo_sprout.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":256.0,"y":448.0,},
         {"$GMRInstance":"v2","%Name":"inst_78F09D93","colour":4294967295,"frozen":true,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_78F09D93","objectId":{"name":"obj_inimigo_slime","path":"objects/obj_inimigo_slime/obj_inimigo_slime.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":1.0,"scaleY":1.0,"x":608.0,"y":288.0,},
       ],"layers":[],"name":"Instances","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
-<<<<<<< HEAD
     {"$GMRBackgroundLayer":"","%Name":"Background","animationFPS":15.0,"animationSpeedType":0,"colour":4278190080,"depth":100,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Background","properties":[],"resourceType":"GMRBackgroundLayer","resourceVersion":"2.0","spriteId":null,"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":false,"x":0,"y":0,},
-=======
     {"$GMRTileLayer":"","%Name":"tileset","depth":300,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"tileset","properties":[],"resourceType":"GMRTileLayer","resourceVersion":"2.0","tiles":{"SerialiseHeight":60,"SerialiseWidth":1000,"TileCompressedData":[
           5,586,587,258,259,260,-995,-2147483648,5,337,338,341,342,343,-995,-2147483648,5,420,421,424,425,426,
           -995,-2147483648,5,503,504,507,508,509,-995,-2147483648,5,586,587,590,591,592,-995,-2147483648,5,337,
@@ -233,7 +228,6 @@
         {"$GMRInstance":"v2","%Name":"inst_8EACD8A","colour":4294967295,"frozen":false,"hasCreationCode":false,"ignore":false,"imageIndex":0,"imageSpeed":1.0,"inheritCode":false,"inheritedItemId":null,"inheritItemSettings":false,"isDnd":false,"name":"inst_8EACD8A","objectId":{"name":"obj_bloqueio","path":"objects/obj_bloqueio/obj_bloqueio.yy",},"properties":[],"resourceType":"GMRInstance","resourceVersion":"2.0","rotation":0.0,"scaleX":80.499985,"scaleY":1.0,"x":2848.0,"y":480.0,},
       ],"layers":[],"name":"colisores","properties":[],"resourceType":"GMRInstanceLayer","resourceVersion":"2.0","userdefinedDepth":false,"visible":true,},
     {"$GMRBackgroundLayer":"","%Name":"Background","animationFPS":30.0,"animationSpeedType":0,"colour":4294967295,"depth":500,"effectEnabled":true,"effectType":null,"gridX":32,"gridY":32,"hierarchyFrozen":false,"hspeed":0.0,"htiled":true,"inheritLayerDepth":false,"inheritLayerSettings":false,"inheritSubLayers":true,"inheritVisibility":true,"layers":[],"name":"Background","properties":[],"resourceType":"GMRBackgroundLayer","resourceVersion":"2.0","spriteId":{"name":"spr_bg","path":"sprites/spr_bg/spr_bg.yy",},"stretch":false,"userdefinedAnimFPS":false,"userdefinedDepth":false,"visible":true,"vspeed":0.0,"vtiled":true,"x":0,"y":0,},
->>>>>>> 1fac01c (slice)
   ],
   "name":"Room1",
   "parent":{
