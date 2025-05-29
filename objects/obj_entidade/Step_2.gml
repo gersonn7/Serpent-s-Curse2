@@ -1,5 +1,4 @@
 //Sitema de colisao
-
 var _velh = sign(velh);
 var _velv = sign(velv);
 

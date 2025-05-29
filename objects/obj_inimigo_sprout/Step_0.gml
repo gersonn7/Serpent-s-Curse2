@@ -78,31 +78,32 @@ switch(state){
 			state = "parado"	
 		}
 		if(sprite_index != spr_inimigo_sprout_attack){
-		    image_index = 0;
+			image_index = 0;
 		}
 		sprite_index = spr_inimigo_sprout_attack;
 		if (image_index > 3 && possoCriarDano) {
-		    damage = instance_create_layer(x - 20 + sprite_width / 2, y - sprite_height / 2, layer, obj_damage);
-		    damage.damage = ataque;
-		    damage.pai = id;
-		    possoCriarDano = false;
+			damage = instance_create_layer(x - 20 + sprite_width / 2, y - sprite_height / 2, layer, obj_damage);
+			damage.damage = ataque;
+			damage.pai = id;
+			possoCriarDano = false;
 		}
 		if (damage != noone) {
-		    if (image_index >= 6 || state != "attack") {
-		        instance_destroy(damage);
-		        damage = noone;
-    }
+			if (image_index >= 6 || state != "attack") {
+			    instance_destroy(damage);
+			    damage = noone;
+	}
 }
 
 
 		if(image_index > image_number - 1) {
-		    state = "parado";
-		    damage = noone;
+			state = "parado";
+			damage = noone;
 		}
 	break;
 	
 	//damage
 	case "damage":
+	velh = 0;
 	if(sprite_index != spr_inimigo_sprout_damage){
 		image_index = 0;
 	}

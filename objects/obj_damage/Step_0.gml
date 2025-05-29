@@ -1,5 +1,6 @@
 var enemy_hit = instance_place(x, y, obj_entidade);
 
+
 if (enemy_hit != noone && enemy_hit.id != pai) {
     
     var elementoPai = object_get_parent(enemy_hit.object_index);
@@ -9,8 +10,15 @@ if (enemy_hit != noone && enemy_hit.id != pai) {
             enemy_hit.state = "damage";
             enemy_hit.image_index = 0;
             enemy_hit.vida_atual -= damage;
+			
+			if(object_get_parent(enemy_hit.object_index) == OBJ_INIMIGOS_PAI){
+				screenShake(2)
+			}
         }
-        
-        instance_destroy();
+        if(destruirDano){
+			instance_destroy();
+		}else{
+			y = pai.y	
+		}
     }
 }

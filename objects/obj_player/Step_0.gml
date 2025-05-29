@@ -57,9 +57,7 @@ switch(state){
 			velv = (-max_velv) * jump;
 			image_index = 0;
 		}else if(attack){
-			state = "ataque";
-			velh = 0;
-			image_index = 0;
+			AttackInicio(down)
 		}else if(dash){
 			state = "dashando";
 			image_index = 0;
@@ -84,9 +82,7 @@ switch(state){
         velv = (-max_velv) * jump;
         image_index = 0;
     } else if(attack){
-        state = "ataque";
-        velh = 0;
-        image_index = 0;
+        AttackInicio(down)
     } else if(dash){
         state = "dashando";
         image_index = 0;
@@ -97,7 +93,6 @@ switch(state){
 	#region pulando
 	case "pulando":
 		//comportamento
-		
 		if(velv > 0){
 			sprite_index = spr_player_caindo;
 		}else{
@@ -112,6 +107,10 @@ switch(state){
 		if(down){
 			state = "parado"
 			velh = 0;
+		}
+		if(attack)
+		{
+			AttackInicio(down)	
 		}
 		break;
 		
@@ -159,11 +158,7 @@ switch(state){
 			state = "parado";
 			velh = 0;
 			combo = 0;
-			attackReady = true;
-			if(damage){
-				instance_destroy(damage, false);
-				damage = noone;
-			}
+			AttackFinal()
 		}
 		if(dash){
 			state = "dashando";
@@ -176,7 +171,75 @@ switch(state){
 		}
 		break
 		
-	#endregion	
+	#endregion
+	#region
+case "ataque aereo down":
+    velv += 1;
+
+    if(!attackDown){
+        sprite_index = spr_ataque_aereo2_ready;
+        image_index = 0;
+        attackDown = true;
+    }
+
+    if(sprite_index == spr_ataque_aereo2_ready && image_index > 0.07){
+        sprite_index = spr_player_ataque_aereo2_loop;
+        image_index = 0;
+    }
+
+    if(sprite_index == spr_player_ataque_aereo2_loop && damage == noone && attackReady) {
+        damage = instance_create_layer(x + sprite_width/2 + velh*2 , y - sprite_height/2, layer, obj_damage);
+        damage.damage = ataque;
+        damage.pai = id;
+        damage.destruirDano = false;
+        attackReady = false;
+    }
+
+    if(down){
+        if(sprite_index != spr_player_ataque_aereo2_end){
+            sprite_index = spr_player_ataque_aereo2_end;
+            image_index = 0;
+        } else {
+            if(image_index >= image_number - 0.2){
+                state = "parado";
+                attackDown = false;
+                screenShake(5);
+                AttackFinal();
+            }
+        }
+    }
+
+break;
+	#endregion
+	#region ataque aereo
+	case "ataque aereo":
+		if(sprite_index != spr_player_ataque_aereo1){
+			sprite_index = spr_player_ataque_aereo1
+			image_index = 0;
+		}
+   
+		
+		if(image_index >= 1 && damage == noone && attackReady) {
+			damage = instance_create_layer(x + sprite_width/2 + velh*2 , y - sprite_height/2, layer, obj_damage);
+			damage.damage = ataque;
+			damage.pai = id;
+			attackReady = false;
+		}
+		
+		//troca de estado
+		if(image_index >= image_number - 1)
+		{
+			state = "pulando"
+			AttackFinal()
+		}
+		if(down){
+			state = "parado"
+			AttackFinal()
+		}
+		
+		break;
+	#endregion
+	
 	
 	#region dash
 	case "dashando":
@@ -186,7 +249,7 @@ switch(state){
 	}
 		velh = image_xscale*dash_vel;
 		
-		if(image_index >= image_number - 1){
+		if(image_index >= image_number - 1 || !down){
 			state = "parado"	
 		}
 	break;
@@ -194,14 +257,15 @@ switch(state){
 		
 	#endregion
 	
-	
+	#region damage
 	case "damage":
 		if(sprite_index != spr_player_hit){
 			sprite_index = spr_player_hit
 			image_index = 0;
+			screenShake(3)
 		}
 		
-		velh = 0;
+		velh = 0;	
 		
 	//condicao saida
 		if(vida_atual> 0){
@@ -214,8 +278,9 @@ switch(state){
 			}
 		}
 		break;
+	#endregion
 		
-		#region dead
+	#region dead
 	case "dead":
 {
     if (sprite_index != spr_player_morte)

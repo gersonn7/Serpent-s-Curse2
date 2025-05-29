@@ -10,8 +10,8 @@
   "name":"obj_inimigo_sprout",
   "overriddenProperties":[],
   "parent":{
-    "name":"inimigos",
-    "path":"folders/Objetos/inimigos.yy",
+    "name":"sprout",
+    "path":"folders/Objetos/sprout.yy",
   },
   "parentObjectId":{
     "name":"OBJ_INIMIGOS_PAI",
