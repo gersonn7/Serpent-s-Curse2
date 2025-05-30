@@ -8,7 +8,7 @@
     "TileSerialiseData":[],
   },
   "name":"tl_level",
-  "out_columns":63,
+  "out_columns":126,
   "out_tilehborder":2,
   "out_tilevborder":2,
   "parent":{
@@ -28,11 +28,11 @@
   },
   "tileAnimationFrames":[],
   "tileAnimationSpeed":15.0,
-  "tileHeight":8,
+  "tileHeight":4,
   "tilehsep":0,
   "tilevsep":0,
-  "tileWidth":8,
+  "tileWidth":4,
   "tilexoff":0,
   "tileyoff":0,
-  "tile_count":3984,
+  "tile_count":15936,
 }

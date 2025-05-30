@@ -1,17 +1,3 @@
-//GAME PAUSE
-if (global.game_paused) exit;
-
-
-
-//GAME PAUSE
-
-if (global.game_paused) {
-    image_speed = 0; 
-    exit; 
-}
-
-image_speed = 1;
-
 //movimentacao
 
 

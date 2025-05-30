@@ -1,22 +1,6 @@
 draw_set_font(Font_menu);
 draw_set_color(c_white);
 
-
-// ESCALA 
-var escala = 1;
-
-
-var logo_w = sprite_get_width(spr_logo) * escala;
-var logo_h = sprite_get_height(spr_logo) * escala;
-
-// POSIÇÃO 
-var logo_x = (1366 - logo_w) / 2;
-var logo_y = 40; 
-
-
-draw_sprite_ext(spr_logo, 0, logo_x, logo_y, escala, escala, 0, c_white, 1);
-
-
 var txt = "JOGAR";
 var txt_w = string_width(txt);
 var txt_h = string_height(txt);

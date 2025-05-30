@@ -1,14 +1,4 @@
 
-//GAME PAUSE
-if (global.game_paused) {
-    image_speed = 0; 
-    exit; 
-}
-image_speed = 1; 
-//GAME PAUSE
-
-
-
 var down = place_meeting(x, y + 1, obj_bloqueio);
 
 if(!down){
@@ -66,41 +56,40 @@ switch(state){
 		break;
 	
 	case "attack":
-		velh = 0;
-		if(sprite_index!= spr_inimigo_sprout_attack){
-			image_index = 0;
-			possoCriarDano = true;
-			damage = noone;
-		}
-		sprite_index = spr_inimigo_sprout_attack;
-		
-		if(image_index > image_number - 1) {
-			state = "parado"	
-		}
-		if(sprite_index != spr_inimigo_sprout_attack){
-			image_index = 0;
-		}
-		sprite_index = spr_inimigo_sprout_attack;
-		if (image_index > 3 && possoCriarDano) {
-			damage = instance_create_layer(x - 20 + sprite_width / 2, y - sprite_height / 2, layer, obj_damage);
-			damage.damage = ataque;
-			damage.pai = id;
-			possoCriarDano = false;
-		}
-		if (damage != noone) {
-			if (image_index >= 6 || state != "attack") {
-			    instance_destroy(damage);
-			    damage = noone;
-	}
-}
+    velh = 0;
 
+    if (sprite_index != spr_inimigo_sprout_attack) {
+        image_index = 0;
+        possoCriarDano = true;
+        damage = noone;
+    }
 
-		if(image_index > image_number - 1) {
-			state = "parado";
-			damage = noone;
-		}
+    sprite_index = spr_inimigo_sprout_attack;
+
+    if (image_index > 3 && possoCriarDano) {
+        var offset_x = 8 * image_xscale;
+        var offset_base = sprite_width / 4;
+        damage = instance_create_layer(x + offset_x + offset_base, y - sprite_height / 2, layer, obj_damage);
+        damage.damage = ataque;
+        damage.pai = id;
+        damage.destruirDano = true; 
+        possoCriarDano = false;
+    }
+
+    if (damage != noone && (image_index >= 6 || state != "attack")) {
+        instance_destroy(damage);
+        damage = noone;
+    }
+
+    if (image_index > image_number - 1) {
+        state = "parado";
+        if (damage != noone) {
+            instance_destroy(damage);
+            damage = noone;
+        }
+    }
 	break;
-	
+
 	//damage
 	case "damage":
 	velh = 0;

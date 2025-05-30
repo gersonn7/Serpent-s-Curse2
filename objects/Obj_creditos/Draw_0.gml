@@ -13,11 +13,9 @@ for (var i = 0; i < array_length(creditos); i++) {
         texto == "Ferramentas"
     );
 
-
     if (eh_secao) {
         draw_set_font(Font_titulo);
         draw_set_color(make_color_rgb(173, 255, 47));
-
     }
     else if (eh_titulo) {
         draw_set_font(Font_titulo);

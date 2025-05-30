@@ -11,7 +11,7 @@
   "overriddenProperties":[],
   "parent":{
     "name":"sprout",
-    "path":"folders/Objetos/sprout.yy",
+    "path":"folders/Objetos/inimigos/sprout.yy",
   },
   "parentObjectId":{
     "name":"OBJ_INIMIGOS_PAI",

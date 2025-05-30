@@ -1,4 +1,3 @@
-show_debug_message("Clique detectado!");
 
 var mx = device_mouse_x(0);
 var my = device_mouse_y(0);
