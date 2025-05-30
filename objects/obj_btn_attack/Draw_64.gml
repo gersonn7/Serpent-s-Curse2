@@ -1,0 +1,1 @@
+draw_sprite(spr_btn_attack, 0, x_gui, y_gui);
