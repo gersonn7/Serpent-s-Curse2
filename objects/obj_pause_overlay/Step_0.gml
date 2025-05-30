@@ -19,12 +19,10 @@ if (mouse_check_button_pressed(mb_left)) {
     else if (point_in_rectangle(mx, my, btn_music_area.x1, btn_music_area.y1, btn_music_area.x2, btn_music_area.y2)) {
         global.som_mutado = !global.som_mutado;
         if (global.musica_rodando != noone) {
-            if (global.som_mutado) {
-                audio_sound_gain(global.musica_rodando, 0, 0.1);
-            } else {
-                audio_sound_gain(global.musica_rodando, 1, 0.1);
-            }
+            audio_sound_gain(global.musica_rodando, global.som_mutado ? 0 : 1, 0.1);
         }
     }
+    else if (point_in_rectangle(mx, my, btn_sfx_area.x1, btn_sfx_area.y1, btn_sfx_area.x2, btn_sfx_area.y2)) {
+        global.sfx_mutado = !global.sfx_mutado;
+    }
 }
-
